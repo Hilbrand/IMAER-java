@@ -24,10 +24,10 @@ import nl.overheid.aerius.gml.v4_0.source.characteristics.EmissionSourceCharacte
 import nl.overheid.aerius.gml.v4_0.source.characteristics.ReferenceDiurnalVariation;
 import nl.overheid.aerius.gml.v4_0.source.characteristics.SpecifiedHeatContent;
 import nl.overheid.aerius.gml.v4_0.source.characteristics.StandardDiurnalVariation;
-import nl.overheid.aerius.shared.domain.ops.OutflowDirectionType;
-import nl.overheid.aerius.shared.domain.ops.OutflowVelocityType;
-import nl.overheid.aerius.shared.domain.v2.characteristics.HeatContentType;
 import nl.overheid.aerius.shared.domain.v2.characteristics.OPSSourceCharacteristics;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.HeatContentType;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.OutflowDirectionType;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.OutflowVelocityType;
 import nl.overheid.aerius.util.gml.GMLIdUtil;
 
 /**

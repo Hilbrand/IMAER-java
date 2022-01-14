@@ -22,8 +22,8 @@ import javax.xml.bind.annotation.XmlType;
 
 import nl.overheid.aerius.gml.base.characteristics.IsGmlCalculatedHeatContent;
 import nl.overheid.aerius.gml.v4_0.base.CalculatorSchema;
-import nl.overheid.aerius.shared.domain.ops.OutflowDirectionType;
-import nl.overheid.aerius.shared.domain.ops.OutflowVelocityType;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.OutflowDirectionType;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.OutflowVelocityType;
 
 /**
  *

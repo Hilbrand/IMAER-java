@@ -21,10 +21,11 @@ import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import nl.overheid.aerius.shared.domain.ops.DiurnalVariation;
-import nl.overheid.aerius.shared.domain.ops.OPSLimits;
-import nl.overheid.aerius.shared.domain.ops.OutflowDirectionType;
-import nl.overheid.aerius.shared.domain.ops.OutflowVelocityType;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.DiurnalVariation;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.HeatContentType;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.OPSLimits;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.OutflowDirectionType;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.OutflowVelocityType;
 
 public class OPSSourceCharacteristics extends SourceCharacteristics {
 

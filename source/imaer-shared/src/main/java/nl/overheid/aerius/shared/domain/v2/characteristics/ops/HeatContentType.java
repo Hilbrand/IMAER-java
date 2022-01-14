@@ -14,21 +14,20 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see http://www.gnu.org/licenses/.
  */
-package nl.overheid.aerius.gml.base.characteristics;
 
-import nl.overheid.aerius.shared.domain.v2.characteristics.ops.OutflowDirectionType;
-import nl.overheid.aerius.shared.domain.v2.characteristics.ops.OutflowVelocityType;
+package nl.overheid.aerius.shared.domain.v2.characteristics.ops;
 
-public interface IsGmlCalculatedHeatContent extends IsGmlHeatContent {
+import java.util.Locale;
 
-  Double getEmissionTemperature();
+public enum HeatContentType {
+  NOT_FORCED,
+  FORCED;
 
-  OutflowDirectionType getOutflowDirection();
-
-  double getOutflowDiameter();
-
-  double getOutflowVelocity();
-
-  OutflowVelocityType getOutflowVelocityType();
-
+  public static HeatContentType safeValueOf(final String value) {
+    try {
+      return value == null ? null : valueOf(value.toUpperCase(Locale.ROOT));
+    } catch (final IllegalArgumentException e) {
+      return null;
+    }
+  }
 }

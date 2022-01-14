@@ -14,20 +14,34 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see http://www.gnu.org/licenses/.
  */
-
-package nl.overheid.aerius.shared.domain.v2.characteristics;
+package nl.overheid.aerius.shared.domain.v2.characteristics.ops;
 
 import java.util.Locale;
 
-public enum HeatContentType {
-  NOT_FORCED,
-  FORCED;
+public enum OutflowDirectionType {
+  VERTICAL, HORIZONTAL;
 
-  public static HeatContentType safeValueOf(final String value) {
+  /**
+   * Safely returns a OutflowDirectionType. It is case independent and returns null in
+   * case the input was null or the OutflowDirectionType type could not be found.
+   *
+   * @param value value to convert
+   * @return OutflowDirectionType or null if no valid input
+   */
+  public static OutflowDirectionType safeValueOf(final String value) {
     try {
       return value == null ? null : valueOf(value.toUpperCase(Locale.ROOT));
     } catch (final IllegalArgumentException e) {
       return null;
     }
+  }
+
+  /**
+   * Returns the name in lowercase.
+   * @return name in lowercase
+   */
+  @Override
+  public String toString() {
+    return name().toLowerCase(Locale.ROOT);
   }
 }

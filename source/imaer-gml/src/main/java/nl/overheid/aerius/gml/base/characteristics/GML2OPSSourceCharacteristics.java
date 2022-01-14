@@ -17,9 +17,9 @@
 package nl.overheid.aerius.gml.base.characteristics;
 
 import nl.overheid.aerius.gml.base.GMLConversionData;
-import nl.overheid.aerius.shared.domain.ops.DiurnalVariation;
-import nl.overheid.aerius.shared.domain.v2.characteristics.HeatContentType;
 import nl.overheid.aerius.shared.domain.v2.characteristics.OPSSourceCharacteristics;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.DiurnalVariation;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.HeatContentType;
 import nl.overheid.aerius.shared.domain.v2.geojson.Geometry;
 import nl.overheid.aerius.shared.exception.AeriusException;
 

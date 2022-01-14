@@ -25,7 +25,7 @@ import nl.overheid.aerius.gml.base.characteristics.IsGmlEmissionSourceCharacteri
 import nl.overheid.aerius.gml.base.characteristics.IsGmlHeatContent;
 import nl.overheid.aerius.gml.base.characteristics.IsGmlSpecifiedHeatContent;
 import nl.overheid.aerius.gml.v1_1.base.CalculatorSchema;
-import nl.overheid.aerius.shared.domain.ops.DiurnalVariation;
+import nl.overheid.aerius.shared.domain.v2.characteristics.ops.DiurnalVariation;
 
 /**
  *
