@@ -14,27 +14,46 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see http://www.gnu.org/licenses/.
  */
-package nl.overheid.aerius.geo.shared;
+package nl.overheid.aerius.shared.domain.geo;
 
 /**
- * Constants for WGS84 (EPSG::4326).
- *
- * The coordinates are not fully supported in AERIUS. This is only available to set points with these coordinates from OPS brn files.
- * This is used only to calculated foreign depositions.
+ * Enum of relevant EPSG constants.
  */
-public final class WGS84 {
-
+public enum EPSG {
   /**
-   * SRID of EPSG:4326.
+   * British National Grid -- United Kingdom (EPSG:27700).
    */
-  public static final int SRID = 4326;
-
+  BNG(27700),
   /**
-   * EPSG code for WGS84.
+   * RD New coordinates (EPSG:28992).
    */
-  public static final String EPSG_CODE = "EPSG:" + SRID;
+  RDNEW(28992),
+  /**
+   * WGS84 (EPSG::4326)
+   */
+  WGS84(4326);
 
-  private WGS84() {
-    // Only available for SRID reference.
+  private static final String EPSG_PRE_TEXT = "EPSG:";
+
+  private int srid;
+
+  EPSG(final int srid) {
+    this.srid = srid;
+  }
+
+  public static EPSG safeValueOf(final String srid) {
+    try {
+      return srid == null ? null : valueOf(srid);
+    } catch (final IllegalArgumentException e) {
+      return null;
+    }
+  }
+
+  public int getSrid() {
+    return srid;
+  }
+
+  public String getEpsgCode() {
+    return EPSG_PRE_TEXT + srid;
   }
 }

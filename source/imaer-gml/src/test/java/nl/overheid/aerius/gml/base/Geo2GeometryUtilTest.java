@@ -29,8 +29,8 @@ import org.junit.jupiter.api.Test;
 import net.opengis.gml.v_3_2_1.DirectPositionType;
 import net.opengis.gml.v_3_2_1.PointType;
 
-import nl.overheid.aerius.geo.shared.RDNew;
 import nl.overheid.aerius.gml.base.geo.Geo2GeometryUtil;
+import nl.overheid.aerius.shared.domain.geo.EPSG;
 import nl.overheid.aerius.shared.domain.v2.geojson.Geometry;
 import nl.overheid.aerius.shared.domain.v2.geojson.Point;
 import nl.overheid.aerius.shared.exception.AeriusException;
@@ -41,7 +41,7 @@ import nl.overheid.aerius.shared.exception.ImaerExceptionReason;
  */
 public class Geo2GeometryUtilTest {
 
-  private final Geo2GeometryUtil geo2GeometryUtil = new Geo2GeometryUtil(RDNew.SRID);
+  private final Geo2GeometryUtil geo2GeometryUtil = new Geo2GeometryUtil(EPSG.RDNEW.getSrid());
 
   @Test
   public void testPoint() throws AeriusException {
