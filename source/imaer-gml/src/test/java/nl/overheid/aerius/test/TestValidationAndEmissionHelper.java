@@ -35,7 +35,6 @@ import nl.overheid.aerius.shared.domain.ops.DiurnalVariation;
 import nl.overheid.aerius.shared.domain.ops.OPSLimits;
 import nl.overheid.aerius.shared.domain.v2.building.BuildingLimits;
 import nl.overheid.aerius.shared.domain.v2.characteristics.CharacteristicsType;
-import nl.overheid.aerius.shared.domain.v2.characteristics.HeatContentType;
 import nl.overheid.aerius.shared.domain.v2.characteristics.OPSSourceCharacteristics;
 import nl.overheid.aerius.shared.domain.v2.characteristics.adms.ADMSLimits;
 import nl.overheid.aerius.shared.domain.v2.geojson.Geometry;
