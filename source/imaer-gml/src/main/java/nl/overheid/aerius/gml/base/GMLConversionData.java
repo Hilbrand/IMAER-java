@@ -196,23 +196,13 @@ public class GMLConversionData {
     return legacyCodeConverter.getFarmLodgingConversion(oldCode);
   }
 
-  private Reason getReason(final GMLLegacyCodeType codeType) {
-    final Reason reason;
-    switch (codeType) {
-    case ON_ROAD_MOBILE_SOURCE:
-      reason = ImaerExceptionReason.GML_INVALID_ROAD_CATEGORY_MATCH;
-      break;
-    case OFF_ROAD_MOBILE_SOURCE:
-      reason = ImaerExceptionReason.GML_OFF_ROAD_CATEGORY_CONVERTED;
-      break;
-    case SECTOR:
-      reason = ImaerExceptionReason.GML_SECTOR_OUT_OF_DATE;
-      break;
-    default:
-      reason = ImaerExceptionReason.GML_INVALID_CATEGORY_MATCH;
-      break;
-    }
-    return reason;
+  private static Reason getReason(final GMLLegacyCodeType codeType) {
+    return switch (codeType) {
+      case ON_ROAD_MOBILE_SOURCE -> ImaerExceptionReason.GML_INVALID_ROAD_CATEGORY_MATCH;
+      case OFF_ROAD_MOBILE_SOURCE -> ImaerExceptionReason.GML_OFF_ROAD_CATEGORY_CONVERTED;
+      case SECTOR -> ImaerExceptionReason.GML_SECTOR_OUT_OF_DATE;
+      default -> ImaerExceptionReason.GML_INVALID_CATEGORY_MATCH;
+    };
   }
 
   public Map<EmissionSourceFeature, InlandShippingEmissionSource> getInlandRoutes() {

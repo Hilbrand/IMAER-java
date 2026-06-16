@@ -27,7 +27,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -141,7 +140,7 @@ class GMLOldVersionTest {
       GML_SOURCE_NO_EMISSION, GML_OFF_ROAD_CATEGORY_CONVERTED);
   private static final EnumSet<ImaerExceptionReason> VALID_ERRORS = EnumSet.noneOf(ImaerExceptionReason.class);
 
-  static List<Object[]> data() throws FileNotFoundException {
+  static List<Object[]> data() {
     final List<Object[]> files = new ArrayList<>();
     for (final AeriusGMLVersion version : AeriusGMLVersion.values()) {
       for (final TestFile file : TestFile.values()) {

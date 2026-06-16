@@ -92,8 +92,8 @@ public class GML2Farm<T extends IsGmlFarmLodgingEmissionSource> extends Abstract
   private FarmAnimalHousing convertStandard(final IsGmlStandardFarmLodging standardLodging, final T source) {
     final FarmAnimalHousing converted;
     final String oldCode = standardLodging.getCode();
-
     final FarmLodgingConversion conversion = getConversionData().determineFarmLodgingConversion(oldCode);
+
     if (conversion == null) {
       converted = convertStandardWithoutConversion(standardLodging, source);
     } else {

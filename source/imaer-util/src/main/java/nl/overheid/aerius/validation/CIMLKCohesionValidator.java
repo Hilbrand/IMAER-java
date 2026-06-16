@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import nl.overheid.aerius.shared.domain.v2.cimlk.CIMLKCorrection;
@@ -44,7 +45,7 @@ import nl.overheid.aerius.util.GeometryUtil;
 /**
  * Validator to check cohesion of input related to CIMLK input data.
  */
-public class CimlkCohesionValidator {
+public class CIMLKCohesionValidator {
 
   private static class CohesionTracker {
     private final Map<String, EmissionSourceFeature> sources = new HashMap<>();
@@ -136,6 +137,7 @@ public class CimlkCohesionValidator {
   }
 
   private static final String ID_SEPARATOR = "| |";
+  private static final Pattern ID_SEPARATOR_PATTERN = Pattern.compile(ID_SEPARATOR);
 
   /**
    * Checks cohesion of a list of {@link Scenario}.
@@ -176,7 +178,7 @@ public class CimlkCohesionValidator {
     }
     final List<String> duplicateDispersionLineIds = determineDuplicates(tracker.dispersionLineIds);
     for (final String duplicateDispersionLineId : duplicateDispersionLineIds) {
-      final String[] idParts = duplicateDispersionLineId.split(ID_SEPARATOR);
+      final String[] idParts = ID_SEPARATOR_PATTERN.split(duplicateDispersionLineId);
       final String calculationPointId = idParts[0];
       final String segmentId = idParts[1];
       tracker.addError(new AeriusException(ImaerExceptionReason.COHESION_DUPLICATE_DISPERSION_LINES,
@@ -195,7 +197,7 @@ public class CimlkCohesionValidator {
   private static void checkDispersionLines(final CohesionTracker tracker) {
     final List<CIMLKDispersionLine> dispersionLineWithoutPoints = tracker.dispersionLines.stream()
         .filter(dispersionLine -> !tracker.calculationPointIds.containsKey(dispersionLine.getCalculationPointGmlId()))
-        .collect(Collectors.toList());
+        .toList();
     for (final CIMLKDispersionLine dispersionLineWithoutPoint : dispersionLineWithoutPoints) {
       tracker.addError(new AeriusException(ImaerExceptionReason.COHESION_REFERENCE_DISPERSION_LINE_MISSING_POINT,
           dispersionLineWithoutPoint.getCalculationPointGmlId(),
@@ -203,7 +205,7 @@ public class CimlkCohesionValidator {
     }
     final List<CIMLKDispersionLine> dispersionLineWithoutSegments = tracker.dispersionLines.stream()
         .filter(dispersionLine -> !tracker.srm1SourceIds.contains(dispersionLine.getGmlId()))
-        .collect(Collectors.toList());
+        .toList();
     for (final CIMLKDispersionLine dispersionLineWithoutSegment : dispersionLineWithoutSegments) {
       tracker.addError(new AeriusException(ImaerExceptionReason.COHESION_REFERENCE_DISPERSION_LINE_MISSING_ROAD,
           dispersionLineWithoutSegment.getCalculationPointGmlId(),

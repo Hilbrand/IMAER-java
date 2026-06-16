@@ -47,9 +47,9 @@ import nl.overheid.aerius.shared.exception.AeriusException;
 import nl.overheid.aerius.shared.exception.ImaerExceptionReason;
 
 /**
- * Test class for {@link CimlkCohesionValidator}.
+ * Test class for {@link CIMLKCohesionValidator}.
  */
-class CimlkCohesionValidatorTest {
+class CIMLKCohesionValidatorTest {
 
   private static final String DEFAULT_ROAD_ID = "342";
   private static final String DEFAULT_POINT_ID = "6584";
@@ -458,7 +458,7 @@ class CimlkCohesionValidatorTest {
   }
 
   private void check(final Scenario scenario) {
-    final CimlkCohesionValidator checker = new CimlkCohesionValidator();
+    final CIMLKCohesionValidator checker = new CIMLKCohesionValidator();
     checker.checkCohesion(scenario, errors, warnings);
   }
 

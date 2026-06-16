@@ -33,7 +33,7 @@ import nl.overheid.aerius.shared.exception.AeriusException;
 import nl.overheid.aerius.shared.exception.ImaerExceptionReason;
 
 /**
- *
+ * Test class for {@link CIMLKMeasureValidator}.
  */
 class CIMLKMeasureValidatorTest {
 

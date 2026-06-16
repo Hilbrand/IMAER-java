@@ -65,22 +65,18 @@ public enum AeriusGMLVersion {
   V1_1("1.1"),
   /**
    * AERIUS GML version 1.0 (IMAER).
-   * @deprecated Old version.
    */
-  @Deprecated
   V1_0("1.0"),
   /**
    * AERIUS GML version 0.5 (IMAER).
-   * @deprecated Old version.
    */
-  @Deprecated
   V0_5("0.5");
 
   private static final String SCHEMA_LOCATION_PATTERN = "/imaer/%s/IMAER.xsd";
 
   private final String schemaLocation;
 
-  private AeriusGMLVersion(final String versionString) {
+  AeriusGMLVersion(final String versionString) {
     this.schemaLocation = String.format(SCHEMA_LOCATION_PATTERN, versionString);
   }
 
